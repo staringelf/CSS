@@ -1,0 +1,149 @@
+:root{
+--clr-red: #c31;
+--clr-black: rgba(black, 1);
+--clr-gray: rgba(black, .7);
+}
+
+body {
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.4;
+  color: var(--clr-gray);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  line-height: .9;
+  color: #c31;
+}
+
+h2 {
+  margin-top: 1.2em;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: .25em;
+}
+
+a {
+  color: var(--clr-red);
+}
+
+.intro {
+  font-size: 5rem;
+}
+
+
+blockquote {
+  font-size: 2rem;
+  color: var(--clr-black);
+}
+
+blockquote::before{
+    content: open-quote;
+    font-size: 1.2em;
+    color: var(--clr-red);
+}
+
+blockquote::after{
+    content: close-quote;
+    color: var(--clr-red);
+    font-size: 1.2em;
+}
+
+a[data-tool-tip]{
+    position: relative;
+}
+
+a[data-tool-tip]::after{
+    content: attr(data-tool-tip);
+    display: block;
+    background-color: rgba(100,120,140,0.8);
+    color: aliceblue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 1em 2em;
+    white-space: nowrap;
+    font-size: 0.75em;
+    border-radius: 5px;
+    transform: scale(0);
+    transition: 
+        transform 0.25s ease-out,
+        bottom 0.25s ease-out;
+}
+
+a[data-tool-tip]:hover::after{
+    transform: scale(1);
+    bottom: 100%;
+}
+
+.section-with-deco::before{
+    font-family: 'Font Awesome 5 Free';
+    display: block;
+    font-size: 1.34em;
+    content: '\f0e7';
+    margin-bottom: 5px;
+}
+
+
+a[href$=".pdf"]::after {
+    font-family: 'Font Awesome 5 Free';
+    content: ' \f1c1';
+}
+  
+
+a[href^='http']::after{
+    font-family: 'Font Awesome 5 Free';
+    content: ' \f35d';
+    font-weight: 900;
+    font-size: 0.89em;
+}
+
+
+
+.counters {
+    background: lightgray;
+    text-align: left;
+    padding: 5em 8em;
+    margin-top: 7em;
+    counter-reset: hello;
+
+  }
+  
+  .section { position: relative; }
+  
+  .section::before{
+        counter-increment: hello;  
+        content: counter(hello);
+        position: absolute;
+        left: -2.5em;
+        top: -0.58em;
+        width: 2em;
+        height: 2em;
+        background-color: aliceblue;
+        border-radius: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid pink;
+        color: pink;
+  }
+
+
+  
+.counters ol {
+    list-style: none;
+    counter-reset: order-list;
+  }
+
+.counters li::before{
+    counter-increment: order-list;      
+    content: counter(order-list) '.   ';
+}
+
+
+  
